@@ -3,8 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Your Name — Portfolio</title>
-<meta name="description" content="Personal site and project catalog.">
+<title>Projects — Your Name</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
@@ -12,13 +11,12 @@
 </head>
 <body>
 
-<!-- ============ NAV — same block copy-pasted on every page ============ -->
 <header class="wrap">
   <div class="nav-row">
     <a class="mark" href="index.html">Your Name</a>
     <nav>
-      <a href="index.html" class="active">About</a>
-      <a href="projects.html">Projects</a>
+      <a href="index.html">About</a>
+      <a href="projects.html" class="active">Projects</a>
       <a href="resume.html">Resume</a>
     </nav>
   </div>
@@ -26,47 +24,21 @@
 
 <main class="wrap">
 
-  <!-- ============ ABOUT ============ -->
-  <section id="about">
-    <p class="role-line">Robotics / Mechatronics Engineering Student</p>
-    <h1>I build systems where hardware and software have to work together.</h1>
-    <p>
-      I'm Your Name — a robotics and mechatronics student interested in the
-      overlap between mechanical design, electronics, and control. This
-      site is a running catalog of what I've built.
-    </p>
-    <p>
-      Most of what's below started as a class project, a competition build,
-      or something I wanted to see work in real life.
-    </p>
+  <div class="page-head">
+    <p class="role-line">Full list</p>
+    <h1>Projects</h1>
+    <p>Everything I've built, logged in one place — including the ones still in progress.</p>
+  </div>
 
-    <div class="stack">
-      <div class="label">Tools &amp; skills</div>
-      <div class="chips">
-        <span>SolidWorks</span>
-        <span>C / C++</span>
-        <span>Python</span>
-        <span>Arduino</span>
-        <span>PID Control</span>
-        <span>KiCad</span>
-      </div>
-    </div>
-
-    <div class="links-row">
-      <a href="https://github.com/yourusername" target="_blank" rel="noopener">GitHub</a>
-      <a href="mailto:you@example.com">Email</a>
-      <a href="https://linkedin.com/in/yourusername" target="_blank" rel="noopener">LinkedIn</a>
-    </div>
-  </section>
-
-  <!-- ============ PROJECTS PREVIEW — shows a couple, links to the full page ============ -->
-  <section id="projects">
+  <section id="projects" style="padding-top: 20px;">
     <div class="section-head">
-      <h2>Recent projects</h2>
+      <h2>All projects</h2>
       <span class="count" id="project-count"></span>
     </div>
     <div id="project-list"></div>
-    <a class="view-all" href="projects.html">View all projects →</a>
+    <div class="empty-note" id="empty-note" style="display:none;">
+      No projects yet — add some in the <code>projects</code> array in the script below.
+    </div>
   </section>
 
 </main>
@@ -77,9 +49,9 @@
 
 <script>
   /* ================================================================
-     PREVIEW PROJECTS — shown on the home page only.
-     Keep this to 2–3 of your best. The full list lives in projects.html
-     (edit that file's own array separately — the two are not linked).
+     ADD YOUR PROJECTS HERE.
+     This is the full list — separate from the short preview on
+     index.html. Add or remove objects freely; "url" is optional.
      ================================================================ */
   const projects = [
     {
@@ -93,12 +65,21 @@
       description: "Another project. Keep descriptions to one line if you can.",
       tags: ["Electronics", "Controls"],
       url: "https://github.com/yourusername/project-two"
+    },
+    {
+      title: "Project Three",
+      description: "This one doesn't have a live link yet, and that's fine.",
+      tags: ["CAD"],
+      url: ""
     }
   ];
 
   const list = document.getElementById('project-list');
   const countEl = document.getElementById('project-count');
-  countEl.textContent = projects.length ? String(projects.length).padStart(2, '0') : '';
+  const emptyNote = document.getElementById('empty-note');
+
+  countEl.textContent = projects.length ? String(projects.length).padStart(2, '0') + ' total' : '';
+  if (!projects.length) emptyNote.style.display = 'block';
 
   projects.forEach((p, i) => {
     const el = p.url ? document.createElement('a') : document.createElement('div');
