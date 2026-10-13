@@ -4,13 +4,20 @@
    ===================================================================== */
 
 :root{
-  /* ---- CHANGE COLORS HERE ---- */
-  --bg: #12201B;            /* page background */
-  --panel-line: #294038;    /* borders / dividers */
-  --ink: #EDEAE2;           /* main text */
-  --ink-soft: #9FB3A9;      /* secondary / muted text */
-  --accent: #6FCF9E;        /* links, highlights */
-  --accent-soft: #1E3A2E;   /* chip / tag background */
+  /* ---- CHANGE COLORS HERE ----
+     Your palette:  text #d4f1f9 · background #04181e · primary #8dddf1
+                    secondary #951366 · accent #e74442                      */
+  --bg: #04181e;              /* page background */
+  --ink: #d4f1f9;             /* main text */
+  --accent: #8dddf1;          /* links, tags, highlights (your "primary") */
+  --hot: #e74442;             /* your red "accent" - currently unused; handy for small highlights */
+  --secondary: #951366;       /* text selection + tag outline */
+
+  /* shades mixed from the colors above */
+  --ink-soft: #859FA6;        /* muted text */
+  --panel-line: #273D43;       /* borders / dividers */
+  --accent-soft: #17343C;      /* tag / chip fill */
+
   --max-width: 720px;
 }
 
@@ -28,7 +35,7 @@ body{
 }
 
 a{ color: var(--accent); }
-::selection{ background: var(--accent-soft); }
+::selection{ background: var(--secondary); color: var(--ink); }
 
 .wrap{
   max-width: var(--max-width);
@@ -58,7 +65,8 @@ nav a{
   color: var(--ink-soft);
   margin-left: 20px;
 }
-nav a:hover, nav a.active{ color: var(--accent); }
+nav a:hover{ color: var(--ink); }
+nav a.active{ color: var(--accent); }
 
 /* ---------- Page heading (used on projects.html / resume.html) ---------- */
 .page-head{ padding: 56px 0 20px; }
@@ -191,17 +199,20 @@ section#projects{ padding: 0 0 100px; }
   font-size: 11px;
   color: var(--accent);
   background: var(--accent-soft);
+  border: 1px solid var(--secondary);
   padding: 3px 8px;
   border-radius: 3px;
 }
 .project .go{
+  display: inline-block;
+  transition: transform .15s ease, color .15s ease;
   font-family:'IBM Plex Mono', monospace;
   font-size: 12px;
   color: var(--ink-soft);
   padding-top: 4px;
   white-space: nowrap;
 }
-.project:hover .go{ color: var(--accent); }
+.project:hover .go{ color: var(--accent); transform: translateX(3px); }
 .project:hover .body h3{ color: var(--accent); }
 
 .empty-note{ padding: 24px 0; color: var(--ink-soft); font-size: 0.95rem; }
@@ -305,7 +316,7 @@ footer p{
   text-decoration:none;
   margin-bottom: 26px;
 }
-.back-link:hover{ color: var(--accent); }
+.back-link:hover{ color: var(--ink); }
 
 .project-head h1{
   font-family:'Fraunces', serif;
@@ -508,7 +519,7 @@ figure.media figcaption{
   text-decoration:none;
   color: var(--ink-soft);
 }
-.project-nav a:hover{ color: var(--accent); }
+.project-nav a:hover{ color: var(--ink); }
 
 @media (max-width: 520px){
   .gallery{ grid-template-columns: 1fr; }
