@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- [1] BROWSER TAB TITLE + SEARCH DESCRIPTION -->
+<title>Project Title — Congling Tang</title>
+<meta name="description" content="One-sentence description of this project.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+<!-- This file lives two folders deep (project/<name>/index.html),
+     so your main stylesheet is reached with "../../". Don't change this line. -->
+<link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+
+<!-- ============ NAV — links go up two levels ============ -->
+<header class="wrap">
+  <div class="nav-row">
+    <a class="mark" href="../../index.html">Congling Tang</a>
+    <nav>
+      <a href="../../index.html">About</a>
+      <a href="../../projects.html" class="active">Projects</a>
+      <!-- <a href="../../resume.html">Resume</a> -->
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <!-- ============ [2] TITLE BLOCK ============ -->
+  <div class="project-head">
+    <a class="back-link" href="../../projects.html">← All projects</a>
+    <h1>Project Title Goes Here</h1>
+    <p class="summary">
+      A two-sentence summary: what it is and what makes it interesting.
+    </p>
+
+    <!-- Quick facts. Add, remove, or reorder <div>s freely. -->
+    <div class="meta-row">
+      <div>STATUS<span>Complete</span></div>
+      <div>DATE<span>Sep 2026</span></div>
+      <div>ROLE<span>Lead / Solo / Team of 4</span></div>
+      <div>CODE<a href="https://github.com/Allen-ENGI/your-repo-name" target="_blank" rel="noopener">GitHub repo ↗</a></div>
+    </div>
+  </div>
+
+  <!-- ============ [3] HERO MEDIA ============
+       Images go in this project's own images/ folder, so the path is
+       just "images/filename.jpg" (no ../ needed).
+       To use a real image, replace the .slot div with:
+         <img src="images/hero.jpg" alt="Describe it"> -->
+  <figure class="media">
+    <div class="slot">Main image goes here<br>(replace this box — see comment above)</div>
+    <figcaption>Caption: what the viewer is looking at.</figcaption>
+  </figure>
+
+
+  <!-- ============================================================
+       [4] CONTENT SECTIONS
+       To add a section: copy everything from <section class="p-section">
+       to its closing </section>, paste it below, change the heading.
+       To remove one: delete the whole block.
+       ============================================================ -->
+
+  <section class="p-section">
+    <h2>Overview</h2>
+    <p>What problem were you solving, and what was the goal? Keep it plain and specific.</p>
+    <p>A second paragraph if needed — constraints, requirements, or context.</p>
+  </section>
+
+  <section class="p-section">
+    <h2>Design &amp; Build</h2>
+    <p>How it works: mechanical design, electronics, firmware, control approach.</p>
+    <ul>
+      <li>Key decision or component one, and why you chose it</li>
+      <li>Key decision or component two</li>
+      <li>Something that didn't work and what you changed</li>
+    </ul>
+
+    <!-- ===== SINGLE IMAGE (copy this block wherever you want an image) ===== -->
+    <figure class="media">
+      <img src="images/example.jpg" alt="Describe the image"
+           onerror="this.outerHTML='<div class=&quot;slot&quot;>images/example.jpg not found yet</div>'">
+      <figcaption>Caption for this image.</figcaption>
+    </figure>
+  </section>
+
+  <section class="p-section">
+    <h2>Gallery</h2>
+    <!-- Add or remove <figure> blocks. They wrap into rows of 2. -->
+    <div class="gallery">
+      <figure>
+        <div class="slot">images/photo-1.jpg</div>
+        <figcaption>Caption one</figcaption>
+      </figure>
+      <figure>
+        <div class="slot">images/photo-2.jpg</div>
+        <figcaption>Caption two</figcaption>
+      </figure>
+      <figure>
+        <div class="slot">images/photo-3.jpg</div>
+        <figcaption>Caption three</figcaption>
+      </figure>
+      <figure>
+        <div class="slot">images/photo-4.jpg</div>
+        <figcaption>Caption four</figcaption>
+      </figure>
+    </div>
+    <!-- To use a real photo, replace its <div class="slot">…</div> with:
+         <img src="images/photo-1.jpg" alt="Describe it"> -->
+  </section>
+
+
+  <!-- ============ [5] TIMELINE ============
+       Each .tl-item is one milestone. Copy/paste to add more, in order.
+       Add class "done" for finished milestones (filled dot):
+         <div class="tl-item done"> … </div> -->
+  <section class="p-section">
+    <h2>Timeline</h2>
+    <div class="timeline">
+
+      <div class="tl-item done">
+        <div class="tl-date">Jan 2026</div>
+        <h3>Concept &amp; requirements</h3>
+        <p>Defined the goal, constraints, and what success looks like.</p>
+      </div>
+
+      <div class="tl-item done">
+        <div class="tl-date">Feb – Mar 2026</div>
+        <h3>CAD and component selection</h3>
+        <p>Modeled the chassis, chose motors and sensors, ordered parts.</p>
+      </div>
+
+      <div class="tl-item done">
+        <div class="tl-date">Apr 2026</div>
+        <h3>First prototype</h3>
+        <p>Assembled and tested. What broke, and what you learned.</p>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-date">Next</div>
+        <h3>Iteration two</h3>
+        <p>What you plan to improve.</p>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ============ [6] RELATED SKILLS ============ -->
+  <section class="p-section">
+    <h2>Skills used</h2>
+    <div class="skill-chips">
+      <span>SolidWorks</span>
+      <span>C / C++</span>
+      <span>PID Control</span>
+      <span>Arduino</span>
+    </div>
+  </section>
+
+
+  <!-- ============ [7] PREV / NEXT PROJECT (optional, off by default) ============
+       Leave this off until you have at least two projects, so there are
+       no dead links. To turn it on:
+         1. Delete the comment marker just above the <div class="project-nav"> line
+            and the one just below its closing </div>.
+         2. Replace previous-folder-name / next-folder-name with the real folder
+            names inside project/ (copy them exactly, same capitalization).
+         3. First project: delete the "Previous" link. Last project: delete the "Next" link.
+       Keep "index.html" at the end of each link. -->
+  <!--
+  <div class="project-nav">
+    <a href="../previous-folder-name/index.html">← Previous project</a>
+    <a href="../next-folder-name/index.html">Next project →</a>
+  </div>
+  -->
+
+</main>
+
+<footer class="wrap">
+  <p>Built with a plain HTML/CSS template · hosted on GitHub Pages</p>
+</footer>
+
+</body>
+</html>

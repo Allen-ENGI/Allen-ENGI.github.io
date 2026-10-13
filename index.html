@@ -71,6 +71,7 @@
       <span class="count" id="project-count"></span>
     </div>
     <div id="project-list"></div>
+    <div class="empty-note" id="empty-note" style="display:none;">Coming soon — project write-ups are in progress.</div>
     <a class="view-all" href="projects.html">View all projects →</a>
   </section>
 
@@ -83,33 +84,50 @@
 <script>
 
   /* ================================================================
-     PREVIEW PROJECTS — shown on the home page only.
-     Keep this to 2–3 of your best. The full list lives in projects.html
-     (edit that file's own array separately — the two are not linked).
+     HOME-PAGE PREVIEW — shows 2–3 of your best projects.
+     The full list is in projects.html (edit that file separately).
      ================================================================ */
-  // const projects = [
-  //   {
-  //     title: "Project One",
-  //     description: "A short, honest sentence about what this project does and why you built it.",
-  //     tags: ["Mechanical", "Firmware"],
-  //     url: "https://github.com/yourusername/project-one"
-  //   },
-  //   {
-  //     title: "Project Two",
-  //     description: "Another project. Keep descriptions to one line if you can.",
-  //     tags: ["Electronics", "Controls"],
-  //     url: "https://github.com/yourusername/project-two"
-  //   }
-  // ];
+  const projects = [
+  
+    // TO ADD A PROJECT: copy the block below, delete the "//" at the start of
+    // each line, and edit the text. "url" is the folder you made in project/
+    // (keep the trailing slash). Put a comma between projects.
+    //
+    // {
+    //   title: "Your Project Title",
+    //   description: "One plain sentence about what it is.",
+    //   tags: ["Mechanical", "Firmware"],
+    //   url: "project/your-folder-name/"
+    // },
+      {
+      title: "F.R.P.S.",
+      description: "Enable a robot to plan safe, collision-aware motions in a changing workspace.",
+       tags: ["ROS", "MoveIt", "Computer Vision"],
+       url: "project/FRPS/index.html"
+      },
+      {
+      title: "Custom 3D Lidar Scanner",
+      description: "Turn a cheap 2D Lidar into a 3D scanner with a custom mechanical design and firmware.",
+       tags: ["Mechanical", "Firmware", "Electronics"],
+       url: "project/3Dlidar/index.html"
+      },
+  ];
 
   const list = document.getElementById('project-list');
   const countEl = document.getElementById('project-count');
-  countEl.textContent = projects.length ? String(projects.length).padStart(2, '0') : '';
+  const emptyNote = document.getElementById('empty-note');
+
+  countEl.textContent = projects.length ? String(projects.length).padStart(2, '0') + ' total' : '';
+  if (!projects.length) emptyNote.style.display = 'block';
 
   projects.forEach((p, i) => {
     const el = p.url ? document.createElement('a') : document.createElement('div');
     el.className = 'project';
-    if (p.url) { el.href = p.url; el.target = '_blank'; el.rel = 'noopener'; }
+    if (p.url) {
+      el.href = p.url;
+      // Only external links (https://...) open in a new tab; your own project pages open in the same tab
+      if (/^https?:\/\//.test(p.url)) { el.target = '_blank'; el.rel = 'noopener'; }
+    }
     el.innerHTML = `
       <span class="index">${String(i + 1).padStart(2, '0')}</span>
       <div class="body">

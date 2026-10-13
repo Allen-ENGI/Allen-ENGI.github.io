@@ -287,3 +287,230 @@ footer p{
   .project .go{ display:none; }
   nav a{ margin-left: 12px; }
 }
+
+
+/* =====================================================================
+   PROJECT PAGES — styles for project/<name>/index.html
+   (title block, image/video, gallery, timeline, skills)
+   Uses the same colors defined at the top of this file.
+   ===================================================================== */
+
+/* ---------- Title block ---------- */
+.project-head{ padding: 48px 0 28px; }
+.back-link{
+  display:inline-block;
+  font-family:'IBM Plex Mono', monospace;
+  font-size: 12.5px;
+  color: var(--ink-soft);
+  text-decoration:none;
+  margin-bottom: 26px;
+}
+.back-link:hover{ color: var(--accent); }
+
+.project-head h1{
+  font-family:'Fraunces', serif;
+  font-weight: 500;
+  font-size: clamp(2rem, 5vw, 2.8rem);
+  line-height: 1.12;
+  margin: 0 0 14px;
+  max-width: 22ch;
+}
+.project-head .summary{
+  max-width: 60ch;
+  color: var(--ink-soft);
+  font-size: 1.05rem;
+  margin: 0 0 20px;
+}
+
+/* small facts row: status, date, role, links */
+.meta-row{
+  display:flex;
+  flex-wrap:wrap;
+  gap: 26px;
+  padding: 16px 0;
+  border-top: 1px solid var(--panel-line);
+  border-bottom: 1px solid var(--panel-line);
+}
+.meta-row div{
+  font-family:'IBM Plex Mono', monospace;
+  font-size: 11px;
+  color: var(--ink-soft);
+}
+.meta-row div span, .meta-row div a{
+  display:block;
+  margin-top: 3px;
+  font-size: 13px;
+  color: var(--ink);
+}
+.meta-row div a{ color: var(--accent); text-decoration:none; }
+.meta-row div a:hover{ text-decoration: underline; }
+
+/* ---------- Content sections ---------- */
+.p-section{ padding: 40px 0 8px; }
+.p-section h2{
+  font-family:'Fraunces', serif;
+  font-weight: 500;
+  font-size: 1.4rem;
+  margin: 0 0 14px;
+}
+.p-section p{
+  max-width: 62ch;
+  color: var(--ink-soft);
+  margin: 0 0 14px;
+}
+.p-section ul{
+  max-width: 62ch;
+  color: var(--ink-soft);
+  padding-left: 20px;
+  margin: 0 0 14px;
+}
+.p-section li{ margin-bottom: 6px; }
+
+/* ---------- Media: images, video, galleries ---------- */
+figure.media{ margin: 22px 0; }
+figure.media img,
+figure.media video{
+  display:block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--panel-line);
+  background: var(--accent-soft);
+}
+figure.media figcaption{
+  font-family:'IBM Plex Mono', monospace;
+  font-size: 11.5px;
+  color: var(--ink-soft);
+  margin-top: 8px;
+}
+
+/* responsive embed for YouTube / Vimeo (keeps 16:9) */
+.embed{
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: 1px solid var(--panel-line);
+  background: var(--accent-soft);
+}
+.embed iframe{
+  position:absolute; inset:0;
+  width:100%; height:100%;
+  border:0;
+}
+
+/* grid of images: 2 across on desktop, 1 on phones */
+.gallery{
+  display:grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+  margin: 22px 0;
+}
+.gallery figure{ margin:0; }
+.gallery img{
+  display:block;
+  width:100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border: 1px solid var(--panel-line);
+  background: var(--accent-soft);
+}
+.gallery figcaption{
+  font-family:'IBM Plex Mono', monospace;
+  font-size: 11px;
+  color: var(--ink-soft);
+  margin-top: 6px;
+}
+
+/* placeholder box — shows where media goes until you add a real file */
+.slot{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding: 20px;
+  min-height: 220px;
+  border: 1px dashed var(--panel-line);
+  background: var(--accent-soft);
+  color: var(--ink-soft);
+  font-family:'IBM Plex Mono', monospace;
+  font-size: 12px;
+}
+.gallery .slot{ min-height: 0; aspect-ratio: 4 / 3; }
+
+/* ---------- Related skills ---------- */
+.skill-chips{ display:flex; flex-wrap:wrap; gap: 8px; margin-top: 6px; }
+.skill-chips span{
+  font-family:'IBM Plex Mono', monospace;
+  font-size: 12px;
+  padding: 5px 10px;
+  border: 1px solid var(--panel-line);
+  color: var(--ink);
+}
+
+/* ---------- Timeline ---------- */
+.timeline{
+  position: relative;
+  margin: 22px 0 8px;
+  padding-left: 26px;
+}
+.timeline::before{
+  content:"";
+  position:absolute;
+  left: 5px; top: 6px; bottom: 6px;
+  width: 1px;
+  background: var(--panel-line);
+}
+.tl-item{
+  position: relative;
+  padding-bottom: 26px;
+}
+.tl-item:last-child{ padding-bottom: 0; }
+.tl-item::before{
+  content:"";
+  position:absolute;
+  left: -26px; top: 6px;
+  width: 11px; height: 11px;
+  border-radius: 50%;
+  background: var(--bg);
+  border: 2px solid var(--accent);
+}
+.tl-item.done::before{ background: var(--accent); }
+
+.tl-date{
+  font-family:'IBM Plex Mono', monospace;
+  font-size: 11.5px;
+  color: var(--accent);
+}
+.tl-item h3{
+  font-family:'Fraunces', serif;
+  font-weight: 500;
+  font-size: 1.05rem;
+  margin: 2px 0 4px;
+}
+.tl-item p{
+  margin: 0;
+  max-width: 58ch;
+  color: var(--ink-soft);
+  font-size: 0.95rem;
+}
+
+/* ---------- Prev / next project ---------- */
+.project-nav{
+  display:flex;
+  justify-content: space-between;
+  gap: 16px;
+  margin: 56px 0 90px;
+  padding-top: 20px;
+  border-top: 1px solid var(--panel-line);
+}
+.project-nav a{
+  font-family:'IBM Plex Mono', monospace;
+  font-size: 13px;
+  text-decoration:none;
+  color: var(--ink-soft);
+}
+.project-nav a:hover{ color: var(--accent); }
+
+@media (max-width: 520px){
+  .gallery{ grid-template-columns: 1fr; }
+  .meta-row{ gap: 18px; }
+}

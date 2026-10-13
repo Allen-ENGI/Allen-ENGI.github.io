@@ -36,15 +36,8 @@
       <span class="count" id="project-count"></span>
     </div>
 
-    <p class="empty-note">Coming soon — full write-ups are in progress.</p>
-
-    <!-- Project list is disabled for now. Remove the comment markers
-         below (and the one around the <script> block) to bring it back.
     <div id="project-list"></div>
-    <div class="empty-note" id="empty-note" style="display:none;">
-      No projects yet — add some in the <code>projects</code> array in the script below.
-    </div>
-    -->
+    <div class="empty-note" id="empty-note" style="display:none;">Coming soon — full write-ups are in progress.</div>
   </section>
 
 </main>
@@ -53,32 +46,34 @@
   <p>Built with a plain HTML/CSS template · hosted on GitHub Pages</p>
 </footer>
 
-<!--
 <script>
   /* ================================================================
-     ADD YOUR PROJECTS HERE.
-     This is the full list — separate from the short preview on
-     index.html. Add or remove objects freely; "url" is optional.
+     FULL PROJECT LIST — every project goes here.
+     (index.html has its own short preview list.)
      ================================================================ */
   const projects = [
-    {
-      title: "Project One",
-      description: "A short, honest sentence about what this project does and why you built it.",
-      tags: ["Mechanical", "Firmware"],
-      url: "https://github.com/yourusername/project-one"
-    },
-    {
-      title: "Project Two",
-      description: "Another project. Keep descriptions to one line if you can.",
-      tags: ["Electronics", "Controls"],
-      url: "https://github.com/yourusername/project-two"
-    },
-    {
-      title: "Project Three",
-      description: "This one doesn't have a live link yet, and that's fine.",
-      tags: ["CAD"],
-      url: ""
-    }
+    // TO ADD A PROJECT: copy the block below, delete the "//" at the start of
+    // each line, and edit the text. "url" is the folder you made in project/
+    // (keep the trailing slash). Put a comma between projects.
+    //
+    // {
+    //   title: "Your Project Title",
+    //   description: "One plain sentence about what it is.",
+    //   tags: ["Mechanical", "Firmware"],
+    //   url: "project/your-folder-name/"
+    // },
+      {
+      title: "F.R.P.S.",
+      description: "Enable a robot to plan safe, collision-aware motions in a changing workspace.",
+       tags: ["ROS", "MoveIt", "Computer Vision"],
+       url: "project/FRPS/index.html"
+      },
+      {
+      title: "Custom 3D Lidar Scanner",
+      description: "Turn a cheap 2D Lidar into a 3D scanner with a custom mechanical design and firmware.",
+       tags: ["Mechanical", "Firmware", "Electronics"],
+       url: "project/3Dlidar/index.html"
+      },
   ];
 
   const list = document.getElementById('project-list');
@@ -91,7 +86,11 @@
   projects.forEach((p, i) => {
     const el = p.url ? document.createElement('a') : document.createElement('div');
     el.className = 'project';
-    if (p.url) { el.href = p.url; el.target = '_blank'; el.rel = 'noopener'; }
+    if (p.url) {
+      el.href = p.url;
+      // Only external links (https://...) open in a new tab; your own project pages open in the same tab
+      if (/^https?:\/\//.test(p.url)) { el.target = '_blank'; el.rel = 'noopener'; }
+    }
     el.innerHTML = `
       <span class="index">${String(i + 1).padStart(2, '0')}</span>
       <div class="body">
@@ -104,7 +103,6 @@
     list.appendChild(el);
   });
 </script>
--->
 
 </body>
 </html>
