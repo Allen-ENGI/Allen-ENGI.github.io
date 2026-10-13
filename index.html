@@ -72,6 +72,7 @@
     </div>
     <div id="project-list"></div>
     <div class="empty-note" id="empty-note" style="display:none;">Coming soon — project write-ups are in progress.</div>
+    <p class="empty-note" id="more-note" style="display:none;">More projects coming soon.</p>
     <a class="view-all" href="projects.html">View all projects →</a>
   </section>
 
@@ -90,26 +91,26 @@
   const projects = [
   
     // TO ADD A PROJECT: copy the block below, delete the "//" at the start of
-    // each line, and edit the text. "url" is the folder you made in project/
+    // each line, and edit the text. "url" is the folder you made in Project/
     // (keep the trailing slash). Put a comma between projects.
     //
     // {
     //   title: "Your Project Title",
     //   description: "One plain sentence about what it is.",
     //   tags: ["Mechanical", "Firmware"],
-    //   url: "project/your-folder-name/"
+    //   url: "Project/your-folder-name/"
     // },
       {
       title: "F.R.P.S.",
       description: "Enable a robot to plan safe, collision-aware motions in a changing workspace.",
        tags: ["ROS", "MoveIt", "Computer Vision"],
-       url: "project/FRPS/index.html"
+       url: "Project/FRPS/index.html"
       },
       {
       title: "Custom 3D Lidar Scanner",
       description: "Turn a cheap 2D Lidar into a 3D scanner with a custom mechanical design and firmware.",
        tags: ["Mechanical", "Firmware", "Electronics"],
-       url: "project/3Dlidar/index.html"
+       url: "Project/3Dlidar/index.html"
       },
   ];
 
@@ -119,6 +120,7 @@
 
   countEl.textContent = projects.length ? String(projects.length).padStart(2, '0') + ' total' : '';
   if (!projects.length) emptyNote.style.display = 'block';
+  if (projects.length) document.getElementById('more-note').style.display = 'block';
 
   projects.forEach((p, i) => {
     const el = p.url ? document.createElement('a') : document.createElement('div');
