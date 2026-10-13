@@ -35,17 +35,17 @@
   <!-- ============ [2] TITLE BLOCK ============ -->
   <div class="project-head">
     <a class="back-link" href="../../projects.html">← All projects</a>
-    <h1>Project Title Goes Here</h1>
+    <h1>Corne Keyboard</h1>
     <p class="summary">
-      A two-sentence summary: what it is and what makes it interesting.
+      Soldering, assembling, and flashing firmware for a custom mechanical keyboard. The Corne is a split, ergonomic keyboard with a compact layout.
     </p>
 
     <!-- Quick facts. Add, remove, or reorder <div>s freely. -->
     <div class="meta-row">
       <div>STATUS<span>Complete</span></div>
-      <div>DATE<span>Sep 2026</span></div>
-      <div>ROLE<span>Lead / Solo / Team of 4</span></div>
-      <div>CODE<a href="https://github.com/Allen-ENGI/your-repo-name" target="_blank" rel="noopener">GitHub repo ↗</a></div>
+      <div>DATE<span>June 2026</span></div>
+      <div>ROLE<span>Solo</span></div>
+      <!-- <div>CODE<a href="https://github.com/Allen-ENGI/your-repo-name" target="_blank" rel="noopener">GitHub repo ↗</a></div> -->
     </div>
   </div>
 
@@ -55,8 +55,8 @@
        To use a real image, replace the .slot div with:
          <img src="images/hero.jpg" alt="Describe it"> -->
   <figure class="media">
-    <div class="slot">Main image goes here<br>(replace this box — see comment above)</div>
-    <figcaption>Caption: what the viewer is looking at.</figcaption>
+    <img src="images/final_assemble.jpg" alt="Final assembled Corne keyboard">             
+    <figcaption>Completed keyboard</figcaption>
   </figure>
 
 
@@ -67,27 +67,45 @@
        To remove one: delete the whole block.
        ============================================================ -->
 
-  <section class="p-section">
-    <h2>Overview</h2>
-    <p>What problem were you solving, and what was the goal? Keep it plain and specific.</p>
-    <p>A second paragraph if needed — constraints, requirements, or context.</p>
-  </section>
+<section class="p-section">
+  <h2>Overview</h2>
+ <p>
+  The goal of this project was to assemble and program a custom Corne split keyboard.
+  The project involved soldering the electronic components, debugging circuit problems,
+  and configuring the correct firmware for the keyboard's microcontroller.
+</p>
 
-  <section class="p-section">
-    <h2>Design &amp; Build</h2>
-    <p>How it works: mechanical design, electronics, firmware, control approach.</p>
-    <ul>
-      <li>Key decision or component one, and why you chose it</li>
-      <li>Key decision or component two</li>
-      <li>Something that didn't work and what you changed</li>
-    </ul>
+<p>
+  <a href="https://config.qmk.fm/#/crkbd/rev1/LAYOUT_split_3x6_3"
+     target="_blank" rel="noopener noreferrer">QMK Keyboard Configurator ↗</a>
+  ·
+  <a href="https://youtu.be/vzDTdLaAzXc?si=mCMBvjrSsixAofiY"
+     target="_blank" rel="noopener noreferrer">Build Reference Video ↗</a>
+</p>
+</section>
+
+<section class="p-section">
+  <h2>Design &amp; Build</h2>
+  <p>
+    I soldered the switches, diodes, microcontrollers, and other components onto the
+    keyboard PCBs. After assembly, I inspected and tested the soldered circuits,
+    identified faulty connections, and repaired solder joints that prevented certain
+    keys from registering. I then identified, configured, and flashed firmware compatible
+    with the keyboard's hardware and layout.
+  </p>
+  <ul>
+    <li>Soldered and assembled the electronic components for both keyboard halves</li>
+    <li>Debugged the circuits by checking component orientation, continuity, and solder joints</li>
+    <li>Selected and flashed compatible firmware, then tested the keys and final layout</li>
+  </ul>
+</section>
 
     <!-- ===== SINGLE IMAGE (copy this block wherever you want an image) ===== -->
-    <figure class="media">
+    <!-- <figure class="media">
       <img src="images/example.jpg" alt="Describe the image"
            onerror="this.outerHTML='<div class=&quot;slot&quot;>images/example.jpg not found yet</div>'">
       <figcaption>Caption for this image.</figcaption>
-    </figure>
+    </figure> -->
   </section>
 
   <section class="p-section">
@@ -95,21 +113,13 @@
     <!-- Add or remove <figure> blocks. They wrap into rows of 2. -->
     <div class="gallery">
       <figure>
-        <div class="slot">images/photo-1.jpg</div>
-        <figcaption>Caption one</figcaption>
+        <img class="slot" src="images/soldering.jpg" alt="Soldering the keyboard">
+        <figcaption>Soldering Process</figcaption>
       </figure>
-      <figure>
+      <!-- <figure>
         <div class="slot">images/photo-2.jpg</div>
         <figcaption>Caption two</figcaption>
-      </figure>
-      <figure>
-        <div class="slot">images/photo-3.jpg</div>
-        <figcaption>Caption three</figcaption>
-      </figure>
-      <figure>
-        <div class="slot">images/photo-4.jpg</div>
-        <figcaption>Caption four</figcaption>
-      </figure>
+      </figure> -->
     </div>
     <!-- To use a real photo, replace its <div class="slot">…</div> with:
          <img src="images/photo-1.jpg" alt="Describe it"> -->
@@ -120,7 +130,7 @@
        Each .tl-item is one milestone. Copy/paste to add more, in order.
        Add class "done" for finished milestones (filled dot):
          <div class="tl-item done"> … </div> -->
-  <section class="p-section">
+  <!-- <section class="p-section">
     <h2>Timeline</h2>
     <div class="timeline">
 
@@ -149,17 +159,17 @@
       </div>
 
     </div>
-  </section>
+  </section> -->
 
 
   <!-- ============ [6] RELATED SKILLS ============ -->
   <section class="p-section">
     <h2>Skills used</h2>
     <div class="skill-chips">
-      <span>SolidWorks</span>
-      <span>C / C++</span>
-      <span>PID Control</span>
-      <span>Arduino</span>
+      <span>3D Printing</span>
+      <span>Circuit Examination</span>
+      <span>Soldering</span>
+      <span>Raspberry Pi Uno</span>
     </div>
   </section>
 
